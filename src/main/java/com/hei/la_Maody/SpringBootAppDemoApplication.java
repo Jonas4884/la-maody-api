@@ -1,4 +1,4 @@
-package com.example.springsecuritydemo;
+package com.hei.la_Maody;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
