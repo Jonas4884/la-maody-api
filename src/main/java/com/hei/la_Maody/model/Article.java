@@ -1,6 +1,5 @@
 package com.hei.la_Maody.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,12 +15,12 @@ import java.io.Serializable;
 @Table
 @AllArgsConstructor
 @NoArgsConstructor
-public class article implements Serializable {
+public class Article implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    private String Name;
+    private String name;
     private double price;
     @ManyToOne
     @JoinColumn(name="id_category", nullable=false)

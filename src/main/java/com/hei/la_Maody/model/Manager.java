@@ -22,9 +22,9 @@ public class Manager implements Serializable {
     private Long id;
 
     @Column(length = 120)
-    private String first_name;
+    private String firstName;
     @Column(length = 120)
-    private String last_name;
+    private String lastName;
 
     @Column(unique = true)
     private String email;

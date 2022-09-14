@@ -18,6 +18,6 @@ import java.io.Serializable;
 public class category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
-    private String Label;
+    private Long id;
+    private String label;
 }
