@@ -89,10 +89,28 @@ public class ManagerService {
 
 
 
-    public List<Customer> getAllCustomer(){
+    public Page<Customer> getAllCustomer(Integer page,Integer pageSize){
+
+            if(page != null && pageSize != null){
+                return customerRepository.findAll(
+                        PageRequest.of(page - 1, pageSize, Sort.by(Sort.Direction.DESC, "id"))
+                );
+            }
+            page = defaultPage;
+            pageSize = defaultPageSize;
+
+            return customerRepository.findAll(
+                    PageRequest.of(page - 1, pageSize, Sort.by(Sort.Direction.DESC, "id"))
+            );
+        }
+
+    public List<Customer> getAllBagsCustomer(){
         return customerRepository.findAll();
     }
 
+    public Customer getCustomerByid(Long id){
+        return customerRepository.getById(id);
+    }
     public Customer getCustomerByName(String name){
         return customerRepository.findByFirstName(name);
     }

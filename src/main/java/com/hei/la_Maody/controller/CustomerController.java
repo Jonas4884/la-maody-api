@@ -15,19 +15,19 @@ public class CustomerController {
     public CustomerService customerService;
 
 
-    @GetMapping("/customer/{id_customer}/item")
-    public List<Article> getALlArticle(@PathVariable Long id){
-        return customerService.getALlBagsArticle(id);
+    @GetMapping("/item/{id_customer}")
+    public List<Article> getItemById(@PathVariable Long id_customer){
+        return customerService.getALlBagsArticle(id_customer);
     }
 
-    @GetMapping("/customer/{id_customer}/{id}")
+    @GetMapping("/item/{id_customer}/{id}")
     public Article getItemById(@PathVariable Long id_customer,
                                @PathVariable Long id
     ){
         return customerService.getItemById(id,id_customer);
     }
 
-    @PutMapping("customer/{id_customer}/item")
+    @PutMapping("/item/{id_customer}")
     public void createOrUpdateArticle(
             @PathVariable int id_customer,
             @RequestBody Article article){

@@ -9,6 +9,7 @@ import com.hei.la_Maody.model.Customer;
 import com.hei.la_Maody.model.Article;
 import com.hei.la_Maody.service.ManagerService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,26 +20,23 @@ import java.util.List;
 public class ManagerController {
 
     private final ManagerService mService;
-    private final com.hei.la_Maody.controller.mapper.createArticleMapper createArticleMapper;
 
-
-    @GetMapping("/customer")
-    public List<Customer> getAllCustomer(){
-        return mService.getAllCustomer();
-    }
-
-//    @GetMapping("/allcustomer")
-//    public List<Stream<restArticle>> getbyCustomer(){
-//        return mService.getMoreCustomer();
-//    }
     @GetMapping("/product")
     public List<restArticle> getAllArticle(
-        @RequestParam(required = false) Integer page,
-        @RequestParam(required = false) Integer pageSize
+            @RequestParam(required = false) Integer page,
+            @RequestParam(required = false) Integer pageSize
     )
     {
         return mService.GetAllArticle(page, pageSize).stream().map(articleMapper::toRest).toList();
     }
+
+    @GetMapping("/customer")
+    public Page<Customer> getAllCustomer(@RequestParam Integer page,
+                                         @RequestParam Integer pageSize){
+        return mService.getAllCustomer(page,pageSize);
+    }
+
+
     @GetMapping("/product/{id}")
     public restArticle getArticleById(@PathVariable Long id){
         return articleMapper.toRest(mService.getArticleById(id));
@@ -46,7 +44,6 @@ public class ManagerController {
     @GetMapping("/article")
     public List<restArticle> getAllArticleContainingWord(
             @RequestParam String name
-
     )
     {
 
@@ -57,13 +54,16 @@ public class ManagerController {
             @RequestParam String category
     )
     {
-
         return mService.findArticleByCategory(category).stream().map(articleMapper::toRest).toList();
     }
 
     @GetMapping("/customer/{id}")
-    public List<restArticle> getCustomerById(@PathVariable(name = "id") Long id){
-        return mService.getAllCustomer().get(Math.toIntExact(id)).getBags_item().stream().map(articleMapper::toRest).toList();
+    public Customer getCustomerById(@PathVariable(name = "id") Long id) {
+        return mService.getCustomerByid(id);
+    }
+    @GetMapping("/customer/{id}/bagsitems")
+    public List<restArticle> getCustomerBagsItemById(@PathVariable(name = "id") Long id){
+        return mService.getAllBagsCustomer().get(Math.toIntExact(id)).getBags_item().stream().map(articleMapper::toRest).toList();
     }
 
 

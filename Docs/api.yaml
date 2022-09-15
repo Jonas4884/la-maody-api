@@ -32,7 +32,7 @@ paths:
       tags:
         - Articles
       summary: Get all articles
-      operationId: getArticles
+      operationId: getAllArticles
       responses:
         '200':
           description: List of Articles
@@ -92,7 +92,7 @@ paths:
         - Article
       summary: remove article by Id
       description: remove article by provided id
-      operationId: Delete article
+      operationId: DeleteArticle
       parameters:
         - name: id
           in: path
@@ -145,30 +145,7 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
-  '/item':
-    get:
-      tags:
-        - Customer
-      summary: Get Customer's item bags
-      operationId: getItem
-      responses:
-        '200':
-          description: The identified item
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/product'
-        '400':
-          $ref: '#/components/responses/400'
-        '403':
-          $ref: '#/components/responses/403'
-        '404':
-          $ref: '#/components/responses/404'
-        '429':
-          $ref: '#/components/responses/429'
-        '500':
-          $ref: '#/components/responses/500'
-  /item/{id}:
+  /item/{id_customer}:
     get:
       tags:
         - Customer
@@ -199,6 +176,37 @@ paths:
           $ref: '#/components/responses/429'
         '500':
           $ref: '#/components/responses/500'
+  /item/{id_customer}/{id}:
+      get:
+        tags:
+          - Customer
+        summary: Get Customer's item in his/her bag by id
+        operationId: getItemById
+        parameters:
+          - name: id
+            in: path
+            required: true
+            schema:
+              type: string
+        responses:
+          '200':
+            description: an item found by id
+            content:
+              application/json:
+                schema:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/product'
+          '400':
+            $ref: '#/components/responses/400'
+          '403':
+            $ref: '#/components/responses/403'
+          '404':
+            $ref: '#/components/responses/404'
+          '429':
+            $ref: '#/components/responses/429'
+          '500':
+            $ref: '#/components/responses/500'
     put:
       tags:
         - Customer
@@ -266,8 +274,8 @@ paths:
     get:
       tags:
         - Manager
-      summary: Get all items
-      operationId: getItems
+      summary: Get all product
+      operationId: getAllProduct
       parameters:
         - name: page
           in: query
@@ -277,21 +285,6 @@ paths:
           in: query
           schema:
             $ref: '#/components/schemas/PageSize'
-        - name: ref
-          in: query
-          description: "Filter items by ref, case is ignored"
-          schema:
-            type: string
-        - name: article_name
-          in: query
-          description: "Filter items by article_name, case is ignored"
-          schema:
-            type: string
-        - name: price
-          in: query
-          description: "Filter items by price"
-          schema:
-            type: string
       responses:
         '200':
           description: List of all items
@@ -403,6 +396,16 @@ paths:
       tags:
         - Manager
       summary: Get all customer
+      operationId: getAllCustomer
+      parameters:
+        - name: page
+          in: query
+          schema:
+            $ref: '#/components/schemas/Page'
+        - name: pageSize
+          in: query
+          schema:
+            $ref: '#/components/schemas/PageSize'
       responses:
         '200':
           description: List of customer

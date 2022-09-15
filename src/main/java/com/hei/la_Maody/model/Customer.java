@@ -26,7 +26,7 @@ public class Customer implements Serializable {
     private String email;
     private String password;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @ManyToMany
     @JoinTable(name = "have",
             joinColumns = {@JoinColumn(name = "customer_id")},
             inverseJoinColumns = {@JoinColumn(name = "article_id")}
