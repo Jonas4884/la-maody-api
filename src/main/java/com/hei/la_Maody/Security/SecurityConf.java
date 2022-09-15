@@ -30,15 +30,16 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
                 .antMatchers("/test/roles/admin").hasRole("admin")
                 .antMatchers("/test/roles/user").hasAnyRole("admin", "user")
                 .antMatchers(PUT,"/product/**").hasAnyRole("admin")
-                .antMatchers(GET,"/customer").hasAnyRole("admin    ")
+                .antMatchers(GET,"/customer/**").hasAnyRole("admin    ")
+                .antMatchers(GET,"/item/**").anonymous()
                 .and()
                 .formLogin()
-                .and()
-                .cors()
+                .disable().cors()
                 .and()
                 .logout().permitAll()
                 .and()
                 .csrf().disable()
+                .cors().disable()
                 .httpBasic();
     }
 
