@@ -58,8 +58,8 @@ public class ManagerController {
     }
 
     @GetMapping("/customer/{id}")
-    public Customer getCustomerById(@PathVariable(name = "id") Long id) {
-        return mService.getCustomerByid(id);
+    public Customer getCustomerById(@PathVariable Long id) {
+        return mService.getClientByid(id);
     }
     @GetMapping("/customer/{id}/bagsitems")
     public List<restArticle> getCustomerBagsItemById(@PathVariable(name = "id") Long id){
@@ -71,6 +71,8 @@ public class ManagerController {
     public Customer getCustomerByName(@RequestParam String name){
         return  mService.getCustomerByName(name);
     }
+
+
 
     @PutMapping("/createarticle")
     public Article updateCustomerItemById( @RequestBody createRestArticle article){

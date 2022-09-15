@@ -108,8 +108,8 @@ public class ManagerService {
         return customerRepository.findAll();
     }
 
-    public Customer getCustomerByid(Long id){
-        return customerRepository.getById(id);
+    public Customer getClientByid(Long id){
+        return customerRepository.findById(id).get();
     }
     public Customer getCustomerByName(String name){
         return customerRepository.findByFirstName(name);

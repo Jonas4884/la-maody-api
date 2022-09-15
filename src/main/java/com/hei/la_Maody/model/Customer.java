@@ -32,4 +32,18 @@ public class Customer implements Serializable {
             inverseJoinColumns = {@JoinColumn(name = "article_id")}
     )
     List<Article> bags_item;
+
+    @OneToOne(orphanRemoval = true)
+    @JoinTable(name = "customer_paying",
+            joinColumns = @JoinColumn(name = "customer_null"),
+            inverseJoinColumns = @JoinColumn(name = "paying_id"))
+    private Paying paying;
+
+    public Paying getPaying() {
+        return paying;
+    }
+
+    public void setPaying(Paying paying) {
+        this.paying = paying;
+    }
 }
