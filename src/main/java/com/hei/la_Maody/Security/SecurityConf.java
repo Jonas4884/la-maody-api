@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import static org.springframework.http.HttpMethod.GET;
 import static org.springframework.http.HttpMethod.PUT;
 
 @Configuration
@@ -24,11 +25,12 @@ public class SecurityConf extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers(HttpMethod.GET,"/user/**").permitAll()
-                .antMatchers(HttpMethod.GET,"/role/**").permitAll()
+                .antMatchers(GET,"/user/**").permitAll()
+                .antMatchers(GET,"/role/**").permitAll()
                 .antMatchers("/test/roles/admin").hasRole("admin")
                 .antMatchers("/test/roles/user").hasAnyRole("admin", "user")
                 .antMatchers(PUT,"/product/**").hasAnyRole("admin")
+                .antMatchers(GET,"/customer").hasAnyRole("admin    ")
                 .and()
                 .formLogin()
                 .and()
