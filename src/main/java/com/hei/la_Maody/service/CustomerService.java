@@ -48,8 +48,8 @@ public class CustomerService {
         Customer customer = customerRepository.findById(id_customer).orElseThrow();
 
         //article article1 = customer.setBags_item((List<com.example.springsecuritydemo.model.article>) customer.getBags_item().set(Math.toIntExact(article.getId()),article));
+
         customer.getBags_item().add(article);
-        System.out.println("article modifée");
-    }
+       }
 
 }

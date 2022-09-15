@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Table
 @AllArgsConstructor
 @NoArgsConstructor
-public class category implements Serializable {
+public class Category implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

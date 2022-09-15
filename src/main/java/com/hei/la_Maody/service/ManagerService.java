@@ -1,10 +1,15 @@
 package com.hei.la_Maody.service;
 
+import com.hei.la_Maody.controller.mapper.createArticleMapper;
+import com.hei.la_Maody.controller.mapper.model.createRestArticle;
+import com.hei.la_Maody.controller.mapper.model.restArticle;
+import com.hei.la_Maody.model.Category;
 import com.hei.la_Maody.model.Customer;
 import com.hei.la_Maody.model.Article;
 import com.hei.la_Maody.repository.CustomerRepository;
 import com.hei.la_Maody.repository.ManagerRepository;
 import com.hei.la_Maody.repository.articleRepository;
+import com.hei.la_Maody.repository.categoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -27,6 +32,10 @@ public class ManagerService {
     private final Integer defaultPage = 1;
     private final Integer defaultPageSize = 8;
 
+    private final createArticleMapper createRestMapper;
+
+
+    private final com.hei.la_Maody.repository.categoryRepository categoryRepository;
 
 
     public Page<Article> GetAllArticle(Integer page, Integer pageSize){
@@ -47,19 +56,19 @@ public class ManagerService {
         return articleRepository.findById(id).get();
     }
 
-    public List<Article> findArticleByContainingName(String name,Integer page,Integer pageSize) {
-        Pageable pageable = PageRequest.of(page,pageSize);
-        return articleRepository.findByNameContainingIgnoreCaseOrderByPriceAsc(name,pageable);
+    public List<Article> findArticleByContainingName(String name) {
+//        Pageable pageable = PageRequest.of(page,pageSize);
+        return articleRepository.findByNameContainingIgnoreCaseOrderByPriceAsc(name);
     }
 
-    public List<Article> findArticleByCategory(String name,Integer page,Integer pageSize) {
-        Pageable pageable = PageRequest.of(page,pageSize);
-        return articleRepository.findArticleByCategoryLabelContains(name,pageable);
+    public List<Article> findArticleByCategory(String name) {
+//        Pageable pageable = PageRequest.of(page,pageSize);
+        return articleRepository.getArticleByCategory_Label(name);
     }
 
-    public Article createArticle(Article article){
+    public Article createArticle(createRestArticle restArticle1){
+       Article article =  createRestMapper.toRestArticle(restArticle1);
          return  articleRepository.save(article);
-
     }
 
     @Transactional
@@ -88,13 +97,6 @@ public class ManagerService {
         return customerRepository.findByFirstName(name);
     }
 
-//    public List<Customer> getMoreCustomer(){
-//
-//        List<Customer> Allcustomer =  customerRepository.findAll();
-//        return Allcustomer.stream().map(customer -> customer.getBags_item().stream().map(articleMapper::toRest)).toList();
-//
-//
-//    }
 
     public void removeArticle(Long id){
            articleRepository.delete(articleRepository.getById(id));

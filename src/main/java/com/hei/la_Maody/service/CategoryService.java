@@ -1,6 +1,6 @@
 package com.hei.la_Maody.service;
 
-import com.hei.la_Maody.model.category;
+import com.hei.la_Maody.model.Category;
 import com.hei.la_Maody.repository.categoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,13 +13,13 @@ import java.util.Optional;
 public class CategoryService {
     public categoryRepository categoryRepository;
 
-    public List<category> GetCategories(){
+    public List<Category> GetCategories(){
         return categoryRepository.findAll();
     }
-    public Optional<category> getCategoryById(Long id){
+    public Optional<Category> getCategoryById(Long id){
         return categoryRepository.findById(id);
     }
-    public category createCategory(category category){
+    public Category createCategory(Category category){
         return categoryRepository.save(category);
     }
 }

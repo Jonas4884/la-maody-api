@@ -27,10 +27,10 @@ public class CustomerController {
         return customerService.getItemById(id,id_customer);
     }
 
-    @PutMapping("/{id_customer}/item")
+    @PutMapping("customer/{id_customer}/item")
     public void createOrUpdateArticle(
-            @PathVariable(name = "id") Long id,
+            @PathVariable int id_customer,
             @RequestBody Article article){
-        customerService.AddNewArticleInBags(id, article);
+        customerService.AddNewArticleInBags((long) id_customer, article);
     }
 }

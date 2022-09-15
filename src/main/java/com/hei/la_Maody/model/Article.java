@@ -1,14 +1,11 @@
 package com.hei.la_Maody.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-
+@Builder
 @Data
 @EqualsAndHashCode
 @Entity
@@ -24,5 +21,5 @@ public class Article implements Serializable {
     private double price;
     @ManyToOne
     @JoinColumn(name="id_category", nullable=false)
-    private category category;
+    private Category category;
 }

@@ -1,16 +1,18 @@
 package com.hei.la_Maody.controller.mapper.model;
 
-
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
 @Builder
 @AllArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-public class restArticle {
+
+public class createRestArticle {
     private Long id;
     private double price;
-    private String category;
+    private int category;
     private String name;
 }

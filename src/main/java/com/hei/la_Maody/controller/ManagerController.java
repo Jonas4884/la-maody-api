@@ -2,6 +2,8 @@ package com.hei.la_Maody.controller;
 
 
 import com.hei.la_Maody.controller.mapper.articleMapper;
+import com.hei.la_Maody.controller.mapper.createArticleMapper;
+import com.hei.la_Maody.controller.mapper.model.createRestArticle;
 import com.hei.la_Maody.controller.mapper.model.restArticle;
 import com.hei.la_Maody.model.Customer;
 import com.hei.la_Maody.model.Article;
@@ -17,6 +19,7 @@ import java.util.List;
 public class ManagerController {
 
     private final ManagerService mService;
+    private final com.hei.la_Maody.controller.mapper.createArticleMapper createArticleMapper;
 
 
     @GetMapping("/customer")
@@ -42,23 +45,20 @@ public class ManagerController {
     }
     @GetMapping("/article")
     public List<restArticle> getAllArticleContainingWord(
-            @RequestParam String name,
-            @RequestParam Integer pagestart,
-            @RequestParam Integer pageSizeEnd
+            @RequestParam String name
+
     )
     {
 
-        return mService.findArticleByContainingName(name,pagestart,pageSizeEnd).stream().map(articleMapper::toRest).toList();
+        return mService.findArticleByContainingName(name).stream().map(articleMapper::toRest).toList();
     }
     @GetMapping("/article/category")
     public List<restArticle> getAllArticleWithAnSpecifiedCategory(
-            @RequestParam String category,
-            @RequestParam(name = "page") Integer pagestart,
-            @RequestParam(name = "pageSize") Integer pageSizeEnd
+            @RequestParam String category
     )
     {
 
-        return mService.findArticleByCategory(category.toUpperCase(),pagestart,pageSizeEnd).stream().map(articleMapper::toRest).toList();
+        return mService.findArticleByCategory(category).stream().map(articleMapper::toRest).toList();
     }
 
     @GetMapping("/customer/{id}")
@@ -72,10 +72,9 @@ public class ManagerController {
         return  mService.getCustomerByName(name);
     }
 
-    @PutMapping("/customer")
-    public Article updateCustomerItemById( @RequestBody Article article){
+    @PutMapping("/createarticle")
+    public Article updateCustomerItemById( @RequestBody createRestArticle article){
         return mService.createArticle(article);
-
     }
     @PutMapping("/customer/{id}")
     public Article UpdateArticle(@PathVariable Long id,@RequestBody Article article){

@@ -1,14 +1,15 @@
 package com.hei.la_Maody.repository;
 
-import com.hei.la_Maody.model.category;
+import com.hei.la_Maody.model.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
 
-public interface categoryRepository extends JpaRepository<category,Long> {
-    Optional<category> findById(Long id);
+public interface categoryRepository extends JpaRepository<Category,Long> {
+    Optional<Category> findById(Long id);
+    Category findByLabelIgnoreCase(String name);
+
 }

@@ -26,6 +26,10 @@ public class articleController {
     public List<restArticle> getAllArticle(){
         return articleRepository.findAll().stream().map(articleMapper::toRest).toList();
     }
+    @GetMapping("/topitem")
+    public List<restArticle> gettopArticle(){
+        return articleRepository.findAll().stream().map(articleMapper::toRest).toList().subList(0,5);
+    }
 
     @GetMapping("/item/{id}")
     public restArticle getAllArticle(@PathVariable(name = "id") Long id){
