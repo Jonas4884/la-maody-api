@@ -1,0 +1,10 @@
+INSERT INTO public.have (customer_id, article_id) VALUES (1, 1);
+INSERT INTO public.have (customer_id, article_id) VALUES (2, 1);
+INSERT INTO public.have (customer_id, article_id) VALUES (3, 2);
+INSERT INTO public.have (customer_id, article_id) VALUES (4, 1);
+INSERT INTO public.have (customer_id, article_id) VALUES (5, 1);
+INSERT INTO public.have (customer_id, article_id) VALUES (6, 6);
+INSERT INTO public.have (customer_id, article_id) VALUES (7, 9);
+INSERT INTO public.have (customer_id, article_id) VALUES (8, 8);
+INSERT INTO public.have (customer_id, article_id) VALUES (9, 6);
+INSERT INTO public.have (customer_id, article_id) VALUES (10, 5);
