@@ -1,0 +1,10 @@
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (1, 'mrush0@washingtonpost.com', 'Mimi', 'Rush', 'fjLmEEK6JC');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (2, 'apakeman1@discovery.com', 'Ardra', 'Pakeman', 'Qlq4qAe0J');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (3, 'smoulder2@macromedia.com', 'Sarette', 'Moulder', 'lIKtXLROULEL');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (4, 'wsimonelli3@flickr.com', 'Walker', 'Simonelli', 'CzplkQk6');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (5, 'dbartkowiak4@devhub.com', 'Dwayne', 'Bartkowiak', 'YFplZXl0v');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (6, 'hliddall5@admin.ch', 'Hermie', 'Liddall', 'WSwSxGFiRssU');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (7, 'awiltshire6@istockphoto.com', 'Allistir', 'Wiltshire', '0WmCJyNSFw');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (8, 'tdekeyser7@facebook.com', 'Tabor', 'Dekeyser', '9RLscNKnd');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (9, 'kmacdearmaid8@dailymail.co.uk', 'Kiri', 'MacDearmaid', 'cXveFwL5r6d');
+INSERT INTO public.customer (id, email, first_name, last_name, password) VALUES (10, 'amcfaul9@craigslist.org', 'Arlee', 'Mc Faul', 'jKXSbXE4fbF');

@@ -1,0 +1,18 @@
+INSERT INTO public.article (id, name, price, id_category) VALUES (4, 'Epicoccum nigrum', 271, 3);
+INSERT INTO public.article (id, name, price, id_category) VALUES (5, 'ENALAPRIL MALEATE', 431, 2);
+INSERT INTO public.article (id, name, price, id_category) VALUES (6, 'Oxygen', 669, 4);
+INSERT INTO public.article (id, name, price, id_category) VALUES (7, 'Degree', 1000, 1);
+INSERT INTO public.article (id, name, price, id_category) VALUES (8, 'Preferred Plus TabTussin DM', 464, 3);
+INSERT INTO public.article (id, name, price, id_category) VALUES (9, 'Atenolol', 923, 1);
+INSERT INTO public.article (id, name, price, id_category) VALUES (10, 'Peptic Relief', 780, 5);
+INSERT INTO public.article (id, name, price, id_category) VALUES (11, 'joojo', 250, 2);
+INSERT INTO public.article (id, name, price, id_category) VALUES (13, 'gg', 251, 2);
+INSERT INTO public.article (id, name, price, id_category) VALUES (14, 'gg', 251, 2);
+INSERT INTO public.article (id, name, price, id_category) VALUES (15, 'gg', 251, 2);
+INSERT INTO public.article (id, name, price, id_category) VALUES (16, 'gg', 251, 2);
+INSERT INTO public.article (id, name, price, id_category) VALUES (17, 'gg', 251, 2);
+INSERT INTO public.article (id, name, price, id_category) VALUES (3, 'ALZ HP', 144, 1);
+INSERT INTO public.article (id, name, price, id_category) VALUES (1, 'test8', 250, 1);
+INSERT INTO public.article (id, name, price, id_category) VALUES (21, 'chaussures', 250, 1);
+INSERT INTO public.article (id, name, price, id_category) VALUES (2, 'pull', 250, 2);
+INSERT INTO public.article (id, name, price, id_category) VALUES (22, 'pull', 250, 2);
